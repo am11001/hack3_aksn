@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\HACK3.props" />
+</Project>
