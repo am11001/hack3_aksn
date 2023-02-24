@@ -1,4 +1,4 @@
-namespace HACK3.Data
+namespace HACKH.Data
 {
     public class WeatherForecast
     {
