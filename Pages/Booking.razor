@@ -1,4 +1,5 @@
 ﻿@page "/booking"
+@using HACKH.Models
 <MudLayout>
     <MudGrid>
         <MudItem xs="12" sm="6" md="4">
@@ -21,7 +22,7 @@
 </MudLayout>
 
 @code {
-    private HACKH.Models.Booking _booking = new HACKH.Models.Booking();
+    private BookingModel _booking = new BookingModel();
 
     private async Task BookRoom()
     {

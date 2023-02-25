@@ -1,6 +1,7 @@
 ﻿@page "/my-bookings"
 @using System.Linq
 @using MudBlazor
+@using HACKH.Models
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
 <MudCard>
@@ -12,7 +13,7 @@
             {
                 <MudCard>
                     <MudCardContent>
-                        <h2>@futureBooking.Date.ToShortDateString() - @futureBooking.StartTime - @futureBooking.EndTime</h2>
+                        <h2>@futureBooking.BookingDay - @futureBooking.BookingStartTime- @futureBooking.BookingEndTime</h2>
                         <p>Floor: @futureBooking.FloorNumber</p>
                         <p>ID: @futureBooking.ParkingId</p>
                     </MudCardContent>
@@ -39,19 +40,21 @@
 </MudCard>
 
 @code {
-    private List<Booking> FutureBookings = new List<Booking>();
-    private List<Booking> PastBookings = new List<Booking>();
+
+
+    private List<BookingModel> FutureBookings = new List<BookingModel>();
+    private List<BookingModel> PastBookings = new List<BookingModel>();
 
     protected override void OnInitialized()
     {
-        var bookings = GetBookingsFromDatabase();
-        Booking b1 = new Booking(new DateTime(2023, 12, 12), new TimeSpan(2,0,0),new TimeSpan(4,0,0), 3, 3);
-        Booking b2 = new Booking(new DateTime(2023, 09, 12), new TimeSpan(14, 0, 0), new TimeSpan(18, 0, 0), 3, 3);
-        Booking b3 = new Booking(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        Booking b4 = new Booking(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        Booking b5 = new Booking(new DateTime(2023, 06, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        Booking b6 = new Booking(new DateTime(2023, 09, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        Booking b7 = new Booking(new DateTime(2023, 08, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        var bookings = new List<BookingModel>();
+        BookingModel b1 = new BookingModel(new DateTime(2023, 12, 12), new TimeSpan(2, 0, 0), new TimeSpan(4, 0, 0), 3, 3);
+        BookingModel b2 = new BookingModel(new DateTime(2023, 09, 12), new TimeSpan(14, 0, 0), new TimeSpan(18, 0, 0), 3, 3);
+        BookingModel b3 = new BookingModel(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        BookingModel b4 = new BookingModel(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        BookingModel b5 = new BookingModel(new DateTime(2023, 06, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        BookingModel b6 = new BookingModel(new DateTime(2023, 09, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        BookingModel b7 = new BookingModel(new DateTime(2023, 08, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
 
 
         bookings.Add(b1);
@@ -64,31 +67,8 @@
 
 
         var now = DateTime.Now;
-        FutureBookings = bookings.Where(booking => booking.Date > now).ToList();
-        PastBookings = bookings.Where(booking => booking.Date <= now).ToList();
+        FutureBookings = bookings.Where(booking => booking.BookingDay > now).ToList();
+        PastBookings = bookings.Where(booking => booking.BookingDay <= now).ToList();
     }
-
-    private List<Booking> GetBookingsFromDatabase()
-    {
-        return new List<Booking>();
-        // Code to retrieve bookings from a database goes here
-    }
-
-    private class Booking
-    {
-        public DateTime Date { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        public int FloorNumber { get; set; }
-        public int ParkingId { get; set; }
-
-        public Booking(DateTime date, TimeSpan StartTime, TimeSpan EndTime, int floorNumber, int ParkingId)
-        {
-            this.Date = date;
-            this.StartTime = StartTime;
-            this.EndTime = EndTime;
-            this.FloorNumber = floorNumber;
-            this.ParkingId = ParkingId;
-        }
-    }
+  
 }
