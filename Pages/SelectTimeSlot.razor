@@ -1,22 +1,24 @@
 ﻿@inject ISnackbar Snackbar
+@using HACKH.Models
+@using HACKH.Data
 
 <MudDialog @bind-Visible="@showDialog" Title="Reserve Time Slot">
     <DialogContent>
         <MudGrid>
             <MudItem xs="12" md="6">
-                <MudDatePicker Label="Date" @bind-Date="@selectedDate" ReadOnly="true" />
+                <MudDatePicker Label="Date" @bind-Date="@timeSlot.BookingDay" ReadOnly="true" />
             </MudItem>
             <MudItem xs="12" md="6">
-                <MudTimePicker Label="Start Time" AmPm="true" @bind-Time="@selectedStartTime" ReadOnly="true" />
+                <MudTimePicker Label="Start Time" AmPm="true" @bind-Time="@timeSlot.BookingStartTime" ReadOnly="true" />
             </MudItem>
             <MudItem xs="12" md="6">
-                <MudTimePicker Label="End Time" AmPm="true" @bind-Time="@selectedEndTime" ReadOnly="true" />
+                <MudTimePicker Label="End Time" AmPm="true" @bind-Time="@timeSlot.BookingEndTime" ReadOnly="true" />
             </MudItem>
             <MudItem xs="12" md="6">
-                <MudTextField Label="Floor Number" @bind-Value="@selectedFloorNumber" ReadOnly="true" />
+                <MudTextField Label="Floor Number" @bind-Value="@timeSlot.FloorNumber" ReadOnly="true" />
             </MudItem>
             <MudItem xs="12" md="6">
-                <MudTextField Label="Parking ID" @bind-Value="@selectedParkingId" ReadOnly="true" />
+                <MudTextField Label="Parking ID" @bind-Value="@timeSlot.ParkingId" ReadOnly="true" />
             </MudItem>
         </MudGrid>
     </DialogContent>
@@ -27,19 +29,20 @@
 </MudDialog>
 
 @code {
+    [Parameter] public BookingModel timeSlot { get; set; } = new BookingModel();
+
     private bool showDialog = false;
-    private DateTime? selectedDate = DateTime.Today;
-    private TimeSpan? selectedStartTime = new TimeSpan(9, 0, 0);
-    private TimeSpan? selectedEndTime = new TimeSpan(10, 0, 0);
-    private int selectedFloorNumber = 1;
-    private int selectedParkingId = 1;
+    //DateTime? selectedDate;
+    //TimeSpan? selectedStartTime;
+    //TimeSpan? selectedEndTime;
+
+    //int? selectedFloorNumber;
+    //int? selectedParkingId;
+
+
 
     private void ReserveTimeSlot()
     {
-        if (selectedDate == null) return;
-        if (selectedStartTime == null) return;
-        if (selectedEndTime == null) return;
-        var timeSlot = new TimeSlot((DateTime)selectedDate, (TimeSpan)selectedStartTime, (TimeSpan)selectedEndTime, selectedFloorNumber, selectedParkingId);
         // do something with the reserved time slot, e.g. add it to a list of reserved time slots
         //Snackbar.Add($"Reserved time slot: {timeSlot.Date.ToShortDateString()} {timeSlot.StartTime.ToString()} - {timeSlot.EndTime.ToString()} Floor: {timeSlot.FloorNumber} ID: {timeSlot.ParkingId}", Severity.Success);
         showDialog = false;
@@ -48,22 +51,5 @@
     private void CancelReservation()
     {
         showDialog = false;
-    }
-
-    private class TimeSlot
-    {
-        public DateTime Date { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
-        public int FloorNumber { get; set; }
-        public int ParkingId { get; set; }
-        public TimeSlot(DateTime date, TimeSpan StartTime, TimeSpan EndTime, int floorNumber, int ParkingId)
-        {
-            this.Date = date;
-            this.StartTime = StartTime;
-            this.EndTime = EndTime;
-            this.FloorNumber = floorNumber;
-            this.ParkingId = ParkingId;
-        }
     }
 }
