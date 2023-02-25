@@ -6,38 +6,29 @@
 @using Microsoft.EntityFrameworkCore;
 @inject ApplicationDbContext dbContext
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
-<MudLayout>
-        <h1>Future bookings</h1>
+
+
+        <h1>My Bookings</h1>
         <MudDivider />
         <div class="future-bookings">
             @foreach (var futureBooking in bookings)
             {
-                <MudCard>
-                    <MudCardContent>
-                        <h2>@futureBooking.BookingDay - @futureBooking.BookingStartTime- @futureBooking.BookingEndTime</h2>
-                        <p>Floor: @futureBooking.FloorNumber</p>
-                        <p>ID: @futureBooking.ParkingId</p>
-                    </MudCardContent>
-                </MudCard>
+            <MudCard Class="mb-4">
+                <MudCardContent Class="pb-4">
+                    <MudGrid Spacing = "2" Justify="Justify.FlexStart">
+                        <MudItem xs="4"><MudDatePicker Label="Date" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
+                        <MudItem xs="4"><MudTimePicker Label="From" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
+                        <MudItem xs="4"> <MudTimePicker Label="To" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
+                        <MudItem >Floor: @futureBooking.FloorNumber ID: @futureBooking.ParkingId   </MudItem>
+
+                    </MudGrid>
+                </MudCardContent>
+             </MudCard>
             }
         </div>
         <MudDivider />
-        @*in case we need history in the future*@
-        @*<h1>History</h1>
-        <MudDivider />
-        <div class="past-bookings">
-            @foreach (var pastBooking in PastBookings)
-            {
-                <MudCard>
-                    <MudCardContent>
-                        <h2>@pastBooking.Date.ToShortDateString() - @pastBooking.TimePeriod</h2>
-                        <p>Floor: @pastBooking.FloorNumber</p>
-                        <p>ID: @pastBooking.ParkingId</p>
-                    </MudCardContent>
-                </MudCard>
-            }
-        </div>*@
-</MudLayout>
+
+
 @code {
 
 
@@ -45,14 +36,7 @@
     private List<BookingModel> PastBookings = new List<BookingModel>();
     private List<BookingModel> bookings = new List<BookingModel>();
 
-    //protected  override void OnInitialized()
-    //{
-    //    bookings = dbContext.Bookings.ToList();
-
-    //    var now = DateTime.Now;
-    //    FutureBookings = bookings.Where(booking => booking.BookingDay > now).ToList();
-    //    PastBookings = bookings.Where(booking => booking.BookingDay <= now).ToList();
-    //}
+  
     protected  override  void OnInitialized()
     {
         var now = DateTime.Now;
