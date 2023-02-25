@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using HACKH.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HACKH.Data
@@ -9,5 +10,6 @@ namespace HACKH.Data
             : base(options)
         {
         }
+        public DbSet<BookingModel> Bookings { get; set; }
     }
 }
