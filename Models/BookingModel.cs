@@ -33,5 +33,15 @@ namespace HACKH.Models
             this.ParkingId = 0;
             this.bookingConfirmed = false;
         }
+
+        public BookingModel(BookingModel bookingModel)
+        {
+            this.BookingDay = bookingModel.BookingDay;
+            this.BookingStartTime = bookingModel.BookingStartTime;
+            this.BookingEndTime = bookingModel.BookingEndTime;
+            this.FloorNumber = bookingModel.FloorNumber;
+            this.ParkingId = bookingModel.ParkingId;
+            this.bookingConfirmed = bookingModel.bookingConfirmed;
+        }
     }
 }

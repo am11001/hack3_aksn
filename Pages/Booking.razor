@@ -29,6 +29,7 @@
     private async Task BookRoom()
     {
         _booking.bookingConfirmed = true;
+        OnSubmit();
     }
 
     string ConfirmedTime()
@@ -38,5 +39,12 @@
         //string startTime = BookingStartTime?.Hours + ":" + BookingStartTime?.Minutes;
         //string endTime = BookingEndTime?.Hours + ":" + BookingEndTime?.Minutes;
         return $"Booking confirmed for {_booking.BookingDay?.ToShortDateString()} {startTime} - {endTime}";
+    }
+
+    public async Task OnSubmit()
+    {
+        BookingModel booking = new BookingModel(_booking);
+        dbContext.Bookings.Add(booking);
+        await dbContext.SaveChangesAsync();
     }
 }

@@ -23,6 +23,8 @@ builder.Services.AddScoped<AuthenticationStateProvider, RevalidatingIdentityAuth
 builder.Services.AddSingleton<WeatherForecastService>();
 builder.Services.AddMudServices();
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
