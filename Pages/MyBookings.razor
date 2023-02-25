@@ -53,11 +53,11 @@
     //    FutureBookings = bookings.Where(booking => booking.BookingDay > now).ToList();
     //    PastBookings = bookings.Where(booking => booking.BookingDay <= now).ToList();
     //}
-    protected  override  void OnInitialized()
+    protected async override  Task OnInitializedAsync()
     {
         var now = DateTime.Now;
 
-        bookings =  dbContext.Bookings.Where(booking => booking.BookingDay > now).ToList();
+        bookings =  await dbContext.Bookings.Where(booking => booking.BookingDay > now).ToListAsync();
 
     }
 }
