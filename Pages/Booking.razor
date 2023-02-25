@@ -1,20 +1,19 @@
 ﻿@page "/booking"
-
 <MudLayout>
     <MudGrid>
         <MudItem xs="12" sm="6" md="4">
-            <MudDatePicker Label="Booking Day" @bind-Date="BookingDay" />
+            <MudDatePicker Label="Booking Day" @bind-Date="_booking.BookingDay" />
         </MudItem>
         <MudItem xs="12" sm="6" md="4">
-            <MudTimePicker Label="Booking Start Time" @bind-Time="BookingStartTime" />
+            <MudTimePicker Label="Booking Start Time" @bind-Time="_booking.BookingStartTime" />
         </MudItem>
         <MudItem xs="12" sm="6" md="4">
-            <MudTimePicker Label="Booking End Time" @bind-Time="BookingEndTime" />
+            <MudTimePicker Label="Booking End Time" @bind-Time="_booking.BookingEndTime" />
         </MudItem>
         <MudItem xs="12">
             <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="BookRoom">Confirm Booking</MudButton>
         </MudItem>
-        @if (bookingConfirmed)
+        @if (_booking.bookingConfirmed)
         {
             <MudAlert Severity="Severity.Success"> @ConfirmedTime() </MudAlert>
         }
@@ -22,22 +21,19 @@
 </MudLayout>
 
 @code {
-    private DateTime? BookingDay { get; set; } = DateTime.Today;
-    private TimeSpan? BookingStartTime { get; set; } = new TimeSpan(08, 00, 00);
-    private TimeSpan? BookingEndTime { get; set; } = new TimeSpan(18, 00, 00);
-    private bool bookingConfirmed = false;
+    private HACKH.Models.Booking _booking = new HACKH.Models.Booking();
 
     private async Task BookRoom()
     {
-        bookingConfirmed = true;
+        _booking.bookingConfirmed = true;
     }
 
     string ConfirmedTime()
     {
-        string startTime = BookingStartTime?.ToString(@"hh\:mm");
-        string endTime = BookingEndTime?.ToString(@"hh\:mm");
+        string startTime = _booking.BookingStartTime?.ToString(@"hh\:mm");
+        string endTime = _booking.BookingEndTime?.ToString(@"hh\:mm");
         //string startTime = BookingStartTime?.Hours + ":" + BookingStartTime?.Minutes;
         //string endTime = BookingEndTime?.Hours + ":" + BookingEndTime?.Minutes;
-        return $"Booking confirmed for {BookingDay?.ToShortDateString()} {startTime} - {endTime}";
+        return $"Booking confirmed for {_booking.BookingDay?.ToShortDateString()} {startTime} - {endTime}";
     }
 }
