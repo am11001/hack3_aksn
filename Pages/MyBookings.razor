@@ -1,0 +1,94 @@
+﻿@page "/my-bookings"
+@using System.Linq
+@using MudBlazor
+@inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
+
+<MudCard>
+    <MudCardContent>
+        <h1>Future bookings</h1>
+        <MudDivider />
+        <div class="future-bookings">
+            @foreach (var futureBooking in FutureBookings)
+            {
+                <MudCard>
+                    <MudCardContent>
+                        <h2>@futureBooking.Date.ToShortDateString() - @futureBooking.StartTime - @futureBooking.EndTime</h2>
+                        <p>Floor: @futureBooking.FloorNumber</p>
+                        <p>ID: @futureBooking.ParkingId</p>
+                    </MudCardContent>
+                </MudCard>
+            }
+        </div>
+        <MudDivider />
+        @*in case we need history in the future*@
+        @*<h1>History</h1>
+        <MudDivider />
+        <div class="past-bookings">
+            @foreach (var pastBooking in PastBookings)
+            {
+                <MudCard>
+                    <MudCardContent>
+                        <h2>@pastBooking.Date.ToShortDateString() - @pastBooking.TimePeriod</h2>
+                        <p>Floor: @pastBooking.FloorNumber</p>
+                        <p>ID: @pastBooking.ParkingId</p>
+                    </MudCardContent>
+                </MudCard>
+            }
+        </div>*@
+    </MudCardContent>
+</MudCard>
+
+@code {
+    private List<Booking> FutureBookings = new List<Booking>();
+    private List<Booking> PastBookings = new List<Booking>();
+
+    protected override void OnInitialized()
+    {
+        var bookings = GetBookingsFromDatabase();
+        Booking b1 = new Booking(new DateTime(2023, 12, 12), new TimeSpan(2,0,0),new TimeSpan(4,0,0), 3, 3);
+        Booking b2 = new Booking(new DateTime(2023, 09, 12), new TimeSpan(14, 0, 0), new TimeSpan(18, 0, 0), 3, 3);
+        Booking b3 = new Booking(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        Booking b4 = new Booking(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        Booking b5 = new Booking(new DateTime(2023, 06, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        Booking b6 = new Booking(new DateTime(2023, 09, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+        Booking b7 = new Booking(new DateTime(2023, 08, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
+
+
+        bookings.Add(b1);
+        bookings.Add(b2);
+        bookings.Add(b3);
+        bookings.Add(b4);
+        bookings.Add(b5);
+        bookings.Add(b6);
+        bookings.Add(b7);
+
+
+        var now = DateTime.Now;
+        FutureBookings = bookings.Where(booking => booking.Date > now).ToList();
+        PastBookings = bookings.Where(booking => booking.Date <= now).ToList();
+    }
+
+    private List<Booking> GetBookingsFromDatabase()
+    {
+        return new List<Booking>();
+        // Code to retrieve bookings from a database goes here
+    }
+
+    private class Booking
+    {
+        public DateTime Date { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
+        public int FloorNumber { get; set; }
+        public int ParkingId { get; set; }
+
+        public Booking(DateTime date, TimeSpan StartTime, TimeSpan EndTime, int floorNumber, int ParkingId)
+        {
+            this.Date = date;
+            this.StartTime = StartTime;
+            this.EndTime = EndTime;
+            this.FloorNumber = floorNumber;
+            this.ParkingId = ParkingId;
+        }
+    }
+}

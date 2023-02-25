@@ -2759,31 +2759,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\krisz\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\HACKH.csproj",
+      "projectUniqueName": "C:\\Users\\User\\hack3_aksn\\HACKH.csproj",
       "projectName": "HACKH",
-      "projectPath": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\HACKH.csproj",
-      "packagesPath": "C:\\Users\\krisz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\obj\\",
+      "projectPath": "C:\\Users\\User\\hack3_aksn\\HACKH.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\User\\hack3_aksn\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\krisz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Infragistics\\NuGet\\": {},
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
@@ -2847,7 +2841,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
