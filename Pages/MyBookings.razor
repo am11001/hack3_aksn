@@ -8,25 +8,25 @@
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
 
-        <h1>My Bookings</h1>
-        <MudDivider />
-        <div class="future-bookings">
-            @foreach (var futureBooking in bookings)
-            {
-            <MudCard Class="mb-4">
-                <MudCardContent Class="pb-4">
-                    <MudGrid Spacing = "2" Justify="Justify.FlexStart">
-                        <MudItem xs="4"><MudDatePicker Label="Date" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
-                        <MudItem xs="4"><MudTimePicker Label="From" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
-                        <MudItem xs="4"> <MudTimePicker Label="To" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
-                        <MudItem >Floor: @futureBooking.FloorNumber ID: @futureBooking.ParkingId   </MudItem>
+<h1>My Bookings</h1>
+<MudDivider />
+<div class="future-bookings">
+    @foreach (var futureBooking in bookings)
+    {
+        <MudCard Class="mb-4">
+            <MudCardContent Class="pb-4">
+                <MudGrid Spacing="2" Justify="Justify.FlexStart">
+                    <MudItem xs="4"><MudDatePicker Label="Date" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
+                    <MudItem xs="4"><MudTimePicker Label="From" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
+                    <MudItem xs="4"> <MudTimePicker Label="To" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
+                    <MudItem>Floor: @futureBooking.FloorNumber ID: @futureBooking.ParkingId   </MudItem>
 
-                    </MudGrid>
-                </MudCardContent>
-             </MudCard>
-            }
-        </div>
-        <MudDivider />
+                </MudGrid>
+            </MudCardContent>
+        </MudCard>
+    }
+</div>
+<MudDivider />
 
 
 @code {
@@ -36,12 +36,12 @@
     private List<BookingModel> PastBookings = new List<BookingModel>();
     private List<BookingModel> bookings = new List<BookingModel>();
 
-  
-    protected  override  void OnInitialized()
+
+    protected override void OnInitialized()
     {
         var now = DateTime.Now;
 
-        bookings =  dbContext.Bookings.Where(booking => booking.BookingDay > now).ToList();
+        bookings = dbContext.Bookings.Where(booking => booking.BookingDay > now).ToList();
 
     }
 }
