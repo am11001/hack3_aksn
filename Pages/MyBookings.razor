@@ -2,28 +2,31 @@
 @using System.Linq
 @using MudBlazor
 @using HACKH.Models
+@using HACKH.Data
+@using Microsoft.EntityFrameworkCore;
+@inject ApplicationDbContext dbContext
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
 
-        <h1>My Bookings</h1>
-        <MudDivider />
-        <div class="future-bookings">
-            @foreach (var futureBooking in FutureBookings)
-            {
-            <MudCard Class="mb-4">
-                <MudCardContent Class="pb-4">
-                    <MudGrid Spacing = "2" Justify="Justify.FlexStart">
-                        <MudItem xs="4"><MudDatePicker Label="Date" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
-                        <MudItem xs="4"><MudTimePicker Label="From" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
-                        <MudItem xs="4"> <MudTimePicker Label="To" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
-                        <MudItem >Floor: @futureBooking.FloorNumber ID: @futureBooking.ParkingId   </MudItem>
+<h1>My Bookings</h1>
+<MudDivider />
+<div class="future-bookings">
+    @foreach (var futureBooking in bookings)
+    {
+        <MudCard Class="mb-4">
+            <MudCardContent Class="pb-4">
+                <MudGrid Spacing="2" Justify="Justify.FlexStart">
+                    <MudItem xs="4"><MudDatePicker Label="Date" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
+                    <MudItem xs="4"><MudTimePicker Label="From" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
+                    <MudItem xs="4"> <MudTimePicker Label="To" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
+                    <MudItem>Floor: @futureBooking.FloorNumber ID: @futureBooking.ParkingId   </MudItem>
 
-                    </MudGrid>
-                </MudCardContent>
-             </MudCard>
-            }
-        </div>
-        <MudDivider />
+                </MudGrid>
+            </MudCardContent>
+        </MudCard>
+    }
+</div>
+<MudDivider />
 
 
 @code {
@@ -31,31 +34,14 @@
 
     private List<BookingModel> FutureBookings = new List<BookingModel>();
     private List<BookingModel> PastBookings = new List<BookingModel>();
+    private List<BookingModel> bookings = new List<BookingModel>();
+
 
     protected override void OnInitialized()
     {
-        var bookings = new List<BookingModel>();
-        BookingModel b1 = new BookingModel(new DateTime(2023, 12, 12), new TimeSpan(2, 0, 0), new TimeSpan(4, 0, 0), 3, 3);
-        BookingModel b2 = new BookingModel(new DateTime(2023, 09, 12), new TimeSpan(14, 0, 0), new TimeSpan(18, 0, 0), 3, 3);
-        BookingModel b3 = new BookingModel(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        BookingModel b4 = new BookingModel(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        BookingModel b5 = new BookingModel(new DateTime(2023, 06, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        BookingModel b6 = new BookingModel(new DateTime(2023, 09, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-        BookingModel b7 = new BookingModel(new DateTime(2023, 08, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3);
-
-
-        bookings.Add(b1);
-        bookings.Add(b2);
-        bookings.Add(b3);
-        bookings.Add(b4);
-        bookings.Add(b5);
-        bookings.Add(b6);
-        bookings.Add(b7);
-
-
         var now = DateTime.Now;
-        FutureBookings = bookings.Where(booking => booking.BookingDay > now).ToList();
-        PastBookings = bookings.Where(booking => booking.BookingDay <= now).ToList();
+
+        bookings = dbContext.Bookings.Where(booking => booking.BookingDay > now).ToList();
+
     }
-  
 }

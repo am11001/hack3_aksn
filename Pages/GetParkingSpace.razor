@@ -1,0 +1,19 @@
+﻿@page "/getparkingspace"
+<h3>GetParkingSpace</h3>
+@using Data
+@using Microsoft.Toolkit.Uwp.Notifications
+@inject ApplicationDbContext dbContext
+<MudFab StartIcon="@Icons.Material.Filled.Add" Label="Get NOTIFIED " Size="Size.Large" OnClick="OnNotiClick" />
+
+@code{
+    public void OnNotiClick()
+    {
+        new ToastContentBuilder()
+    .AddArgument("action", "viewConversation")
+    .AddArgument("conversationId", 9813)
+    .AddText("hello there")
+    .AddText("THIS IS K&H HACK3 BABY!")
+    .Show(); // Not seeing the Show() method? Make sure you have version 7.0, and if you're using .NET 6 (or later), then your TFM must be net6.0-windows10.0.17763.0 or greater
+    }
+   
+}
