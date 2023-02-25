@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EW3XwWwzXmdVnh58xVzzxM1vM4YaYmgrk0npKQZiS9o=",
+  "Hash": "ZX3ZJIhKn5//lc1K5nED3VkmGzfvj07cNwLNRSJ2vHk=",
   "Source": "HACKH",
   "BasePath": "_content/HACKH",
   "Mode": "Default",
@@ -10,7 +10,7 @@
     {
       "Name": "HACKH\\wwwroot",
       "Source": "HACKH",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "Pattern": "**"
     }
@@ -1037,10 +1037,44 @@
       "OriginalItemSpec": "C:\\Users\\krisz\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.11\\staticwebassets\\V5\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\obj\\Debug\\net6.0\\scopedcss\\bundle\\HACKH.styles.css",
+      "Identity": "C:\\Users\\krisz\\.nuget\\packages\\mudblazor\\6.1.9\\staticwebassets\\MudBlazor.min.css",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\krisz\\.nuget\\packages\\mudblazor\\6.1.9\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\krisz\\.nuget\\packages\\mudblazor\\6.1.9\\staticwebassets\\MudBlazor.min.css"
+    },
+    {
+      "Identity": "C:\\Users\\krisz\\.nuget\\packages\\mudblazor\\6.1.9\\staticwebassets\\MudBlazor.min.js",
+      "SourceId": "MudBlazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\krisz\\.nuget\\packages\\mudblazor\\6.1.9\\staticwebassets\\",
+      "BasePath": "_content/MudBlazor",
+      "RelativePath": "MudBlazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\krisz\\.nuget\\packages\\mudblazor\\6.1.9\\staticwebassets\\MudBlazor.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\obj\\Debug\\net6.0\\scopedcss\\bundle\\HACKH.styles.css",
       "SourceId": "HACKH",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "HACKH.styles.css",
       "AssetKind": "All",
@@ -1051,13 +1085,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\krisz\\source\\repos\\HACKH\\obj\\Debug\\net6.0\\scopedcss\\bundle\\HACKH.styles.css"
+      "OriginalItemSpec": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\obj\\Debug\\net6.0\\scopedcss\\bundle\\HACKH.styles.css"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\HACKH.bundle.scp.css",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\HACKH.bundle.scp.css",
       "SourceId": "HACKH",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "HACKH.bundle.scp.css",
       "AssetKind": "All",
@@ -1068,13 +1102,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\krisz\\source\\repos\\HACKH\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\HACKH.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\HACKH.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -1088,10 +1122,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -1105,10 +1139,10 @@
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/font/css/open-iconic-bootstrap.min.css",
       "AssetKind": "All",
@@ -1122,10 +1156,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.eot",
       "AssetKind": "All",
@@ -1139,10 +1173,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.otf",
       "AssetKind": "All",
@@ -1156,10 +1190,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.svg",
       "AssetKind": "All",
@@ -1173,10 +1207,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.ttf",
       "AssetKind": "All",
@@ -1190,10 +1224,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/font/fonts/open-iconic.woff",
       "AssetKind": "All",
@@ -1207,10 +1241,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/FONT-LICENSE",
       "AssetKind": "All",
@@ -1224,10 +1258,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\FONT-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/ICON-LICENSE",
       "AssetKind": "All",
@@ -1241,10 +1275,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\ICON-LICENSE"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\open-iconic\\README.md",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\open-iconic\\README.md",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/open-iconic/README.md",
       "AssetKind": "All",
@@ -1258,10 +1292,10 @@
       "OriginalItemSpec": "wwwroot\\css\\open-iconic\\README.md"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\css\\site.css",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\css\\site.css",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "css/site.css",
       "AssetKind": "All",
@@ -1275,10 +1309,10 @@
       "OriginalItemSpec": "wwwroot\\css\\site.css"
     },
     {
-      "Identity": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\favicon.ico",
       "SourceId": "HACKH",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\krisz\\source\\repos\\HACKH\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\krisz\\Coding\\HACK3\\hack3_aksn\\wwwroot\\",
       "BasePath": "_content/HACKH",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
