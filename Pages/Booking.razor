@@ -1,50 +1,71 @@
 ﻿@page "/booking"
-@using Data
-@inject ApplicationDbContext dbContext
+
+@using MudBlazor
 @using HACKH.Models
-<MudLayout>
+@using HACKH.Data
+
+@inject ApplicationDbContext dbContext
+@inject IDialogService DialogService
+
+<MudContainer>
+    <MudDatePicker Label="Select a date" @bind-Date=@selectedDate />
+
+    <h4 style="margin-top: 50px"> Available Time Slots </h4>
+
     <MudGrid>
-        <MudItem xs="12" sm="6" md="4">
-            <MudDatePicker Label="Booking Day" @bind-Date="_booking.BookingDay" />
-        </MudItem>
-        <MudItem xs="12" sm="6" md="4">
-            <MudTimePicker Label="Booking Start Time" @bind-Time="_booking.BookingStartTime" />
-        </MudItem>
-        <MudItem xs="12" sm="6" md="4">
-            <MudTimePicker Label="Booking End Time" @bind-Time="_booking.BookingEndTime" />
-        </MudItem>
-        <MudItem xs="12">
-            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="BookRoom">Confirm Booking</MudButton>
-        </MudItem>
-        @if (_booking.bookingConfirmed)
+        @foreach (var timeSlot in timeSlots)
         {
-            <MudAlert Severity="Severity.Success"> @ConfirmedTime() </MudAlert>
+            <MudItem xs="12" sm="6" md="4" lg="3" xl="2">
+                <MudButton OnClick="@(() => SelectTimeSlot(timeSlot))">
+                    <MudCard>
+                        <MudCardContent>
+                            <h6>@timeSlot.StartTime.ToString(@"hh\:mm") - @timeSlot.EndTime.ToString(@"hh\:mm")</h6>
+                        </MudCardContent>
+                    </MudCard>
+                </MudButton>
+            </MudItem>
         }
     </MudGrid>
-</MudLayout>
+</MudContainer>
 
 @code {
-    private BookingModel _booking = new BookingModel();
+    DateTime? selectedDate;
+    List<TimeSlot> timeSlots { get; set; } = new List<TimeSlot>();
 
-    private async Task BookRoom()
+    private void SelectTimeSlot(TimeSlot timeSlot)
     {
-        _booking.bookingConfirmed = true;
-        OnSubmit();
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<SelectTimeSlot>("Reservation", options);
     }
 
-    string ConfirmedTime()
+    protected override void OnInitialized()
     {
-        string startTime = _booking.BookingStartTime?.ToString(@"hh\:mm");
-        string endTime = _booking.BookingEndTime?.ToString(@"hh\:mm");
-        //string startTime = BookingStartTime?.Hours + ":" + BookingStartTime?.Minutes;
-        //string endTime = BookingEndTime?.Hours + ":" + BookingEndTime?.Minutes;
-        return $"Booking confirmed for {_booking.BookingDay?.ToShortDateString()} {startTime} - {endTime}";
-    }
+        selectedDate = DateTime.Now;
+        //timeSlots = dbContext.TimeSlots.ToList();
+        //maybe we have to compute it?
 
-    public async Task OnSubmit()
+        timeSlots.Add(new TimeSlot(new DateTime(2023, 12, 12), new TimeSpan(2, 0, 0), new TimeSpan(4, 0, 0), 3, 3));
+        timeSlots.Add(new TimeSlot(new DateTime(2023, 09, 12), new TimeSpan(14, 0, 0), new TimeSpan(18, 0, 0), 3, 3));
+        timeSlots.Add(new TimeSlot(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new TimeSlot(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new TimeSlot(new DateTime(2023, 06, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new TimeSlot(new DateTime(2023, 09, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new TimeSlot(new DateTime(2023, 08, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+    }
+    private class TimeSlot
     {
-        BookingModel booking = new BookingModel(_booking);
-        dbContext.Bookings.Add(booking);
-        await dbContext.SaveChangesAsync();
+        public DateTime Date { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
+        public int FloorNumber { get; set; }
+        public int ParkingId { get; set; }
+        public TimeSlot(DateTime date, TimeSpan StartTime, TimeSpan EndTime, int floorNumber, int ParkingId)
+        {
+            this.Date = date;
+            this.StartTime = StartTime;
+            this.EndTime = EndTime;
+            this.FloorNumber = floorNumber;
+            this.ParkingId = ParkingId;
+        }
     }
 }
