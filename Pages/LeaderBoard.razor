@@ -1,0 +1,48 @@
+﻿@page "/leaderboard"
+@using HACKH.Models
+@using System.Net.Http.Json
+@using MudBlazor
+
+
+<MudTable Items="@Elements" >
+ @*  <ColGroup>
+        <col style="width: 60px;" />
+        <col />
+        <col style="width: 60%;" />
+        <col style="width: 60px;" />
+        <col />
+    </ColGroup>*@
+    <HeaderContent>
+        <MudTh>#</MudTh>
+        <MudTh>Name</MudTh>
+        <MudTh>Score</MudTh>
+        <MudBadge Content="100" Color="Color.Primary" Overlap="true" Class="mx-6 my-4">
+            <MudIcon Icon="@Icons.Material.Rounded.Badge" Color="Color.Default" />
+        </MudBadge>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="#">@context.Id</MudTd>
+        <MudTd DataLabel="Name">@context.Name</MudTd>
+        <MudTd DataLabel="Score">@context.Points.ToString()</MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="new int[] { 10, 25, 50, 100, int.MaxValue }" InfoFormatHorizontalAlignment="HorizontalAlignment.Left" HidePageNumber="true" HidePagination="true" HideRowsPerPage="true" />
+    </PagerContent>
+</MudTable>
+
+
+@code {
+    private List<Owner> Elements = new List<Owner>();
+
+    protected override void OnInitialized()
+    {
+        Owner gela = new Owner(1, "Balasz Kivancs", 2,4);
+        Owner gela2 = new Owner(1, "Giko Bulbul", 6, 2);
+
+        Elements.Add(gela);
+        Elements.Add(gela2);
+
+    } 
+
+
+}
