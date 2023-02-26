@@ -6,7 +6,9 @@
         </form>
     </Authorized>
     <NotAuthorized>
-        <MudNavLink Href="Identity/Account/Login" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Login">Login</MudNavLink>
+        <Class="d-flex justify-end flex-grow-1 gap-4" Elevation="0">
+         <MudNavLink Href="Identity/Account/Login" Match="NavLinkMatch.All" Style="width: 50px" Class="pa-0"> <MudIcon Icon="@Icons.Material.Filled.Login"></MudIcon></MudNavLink>
+        </Class>
     </NotAuthorized>
 </AuthorizeView>
 
