@@ -2,6 +2,12 @@
 
 namespace HACKH.Models
 {
+    public enum Role
+    {
+        Aranyember,
+        Semleges,
+        Gazfickó
+    }
     public class Owner
     {
         [Key]
@@ -9,6 +15,7 @@ namespace HACKH.Models
         public string Name { get; set; }
         public int ParkingId { get; set; }
         public int Points { get; set; }
+        public Role Classification { get; set; } = Role.Semleges;
         public Owner() { }
 
         public Owner(int Id, string Name, int ParkingId, int points=0)
@@ -17,7 +24,7 @@ namespace HACKH.Models
             this.Name = Name;
             this.ParkingId = ParkingId;
             this.Points = points;
-
+            this.Classification = Role.Semleges;
         }
 
         //public User GetUser()

@@ -14,20 +14,18 @@
     </ColGroup>*@
     <HeaderContent>
         <MudTh>#</MudTh>
-        <MudTh>Name</MudTh>
-        <MudTh>Score</MudTh>
-        <MudBadge Content="100" Color="Color.Primary" Overlap="true" Class="mx-6 my-4">
-            <MudIcon Icon="@Icons.Material.Rounded.Badge" Color="Color.Default" />
-        </MudBadge>
+        <MudTh>Név</MudTh>
+        <MudTh>Pontszám</MudTh>
+        <MudTh>Értékelés</MudTh>
+      
     </HeaderContent>
     <RowTemplate>
         <MudTd DataLabel="#">@context.Id</MudTd>
-        <MudTd DataLabel="Name">@context.Name</MudTd>
-        <MudTd DataLabel="Score">@context.Points.ToString()</MudTd>
+        <MudTd DataLabel="Név">@context.Name</MudTd>
+        <MudTd DataLabel="Pontszám">@context.Points.ToString()</MudTd>
+        <MudTd DataLabel="Értékelés">@context.Classification.ToString()</MudTd>
     </RowTemplate>
-    <PagerContent>
-        <MudTablePager PageSizeOptions="new int[] { 10, 25, 50, 100, int.MaxValue }" InfoFormatHorizontalAlignment="HorizontalAlignment.Left" HidePageNumber="true" HidePagination="true" HideRowsPerPage="true" />
-    </PagerContent>
+
 </MudTable>
 
 
@@ -38,9 +36,13 @@
     {
         Owner gela = new Owner(1, "Balasz Kivancs", 2,4);
         Owner gela2 = new Owner(1, "Giko Bulbul", 6, 2);
-
+        Owner gela3 = new Owner(1, "Giko Kulbul", 6, 2);
+        gela.Classification = Role.Aranyember;
+        gela2.Classification = Role.Semleges;
+        gela3.Classification = Role.Gazfickó;
         Elements.Add(gela);
         Elements.Add(gela2);
+        Elements.Add(gela3);
 
     } 
 

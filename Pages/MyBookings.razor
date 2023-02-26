@@ -7,26 +7,49 @@
 @inject ApplicationDbContext dbContext
 @inject Microsoft.AspNetCore.Components.NavigationManager NavigationManager
 
-
-<h1>My Bookings</h1>
+<MudTabs Elevation="4" Rounded="true" Centered="true" Color="@Color.Primary" PanelClass="pa-6">
+    <MudTabPanel Text="Foglalásaim" ToolTip="ToolTip One">
 <MudDivider />
 <div class="future-bookings">
-    @foreach (var futureBooking in bookings)
-    {
-        <MudCard Class="mb-4">
-            <MudCardContent Class="pb-4">
-                <MudGrid Spacing="2" Justify="Justify.FlexStart">
-                    <MudItem xs="4"><MudDatePicker Label="Date" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
-                    <MudItem xs="4"><MudTimePicker Label="From" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
-                    <MudItem xs="4"> <MudTimePicker Label="To" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
-                    <MudItem>Floor: @futureBooking.FloorNumber ID: @futureBooking.ParkingId   </MudItem>
-
-                </MudGrid>
-            </MudCardContent>
-        </MudCard>
-    }
+            @foreach (var futureBooking in bookings)
+            {
+           <MudCard Class="mb-4">
+                <MudCardContent Class="pb-4">
+                    <MudGrid Spacing="2" Justify="Justify.FlexStart">
+                        <MudItem xs="4"><MudDatePicker Label="Dátum" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
+                        <MudItem xs="4"><MudTimePicker Label="Mettől" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
+                        <MudItem xs="4"> <MudTimePicker Label="Meddig" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
+                        <MudItem>Emelet: @futureBooking.FloorNumber Azonosító: @futureBooking.ParkingId   </MudItem>
+                    </MudGrid>
+                </MudCardContent>
+            </MudCard>
+            }
 </div>
 <MudDivider />
+    </MudTabPanel>
+    <MudTabPanel Text="Felajánlásaim" ToolTip="ToolTip Two">
+        <MudDivider />
+        <div class="future-bookings">
+            @foreach (var futureBooking in bookings)
+            {
+                <MudCard Class="mb-4">
+                    <MudCardContent Class="pb-4">
+                        <MudGrid Spacing="2" Justify="Justify.FlexStart">
+                            <MudItem xs="4"><MudDatePicker Label="Dátum" @bind-Date=@futureBooking.BookingDay ReadOnly="true" /></MudItem>
+                            <MudItem xs="4"><MudTimePicker Label="Mettől" AmPm="true" @bind-Time=@futureBooking.BookingStartTime ReadOnly="true" /></MudItem>
+                            <MudItem xs="4"> <MudTimePicker Label="Meddig" AmPm="true" @bind-Time=@futureBooking.BookingEndTime ReadOnly="true" /></MudItem>
+                            <MudItem>Emelet: @futureBooking.FloorNumber Azonosító @futureBooking.ParkingId   </MudItem>
+
+                        </MudGrid>
+                    </MudCardContent>
+                </MudCard>
+            }
+        </div>
+        <MudDivider />
+    </MudTabPanel>
+ 
+</MudTabs>
+
 
 
 @code {

@@ -2,31 +2,33 @@
 @using HACKH.Models
 @using HACKH.Data
 
-<MudDialog @bind-Visible="@showDialog" Title="Reserve Time Slot">
-    <DialogContent>
-        <MudGrid>
-            <MudItem xs="12" md="6">
-                <MudDatePicker Label="Date" @bind-Date="@timeSlot.BookingDay" ReadOnly="true" />
-            </MudItem>
-            <MudItem xs="12" md="6">
-                <MudTimePicker Label="Start Time" AmPm="true" @bind-Time="@timeSlot.BookingStartTime" ReadOnly="true" />
-            </MudItem>
-            <MudItem xs="12" md="6">
-                <MudTimePicker Label="End Time" AmPm="true" @bind-Time="@timeSlot.BookingEndTime" ReadOnly="true" />
-            </MudItem>
-            <MudItem xs="12" md="6">
-                <MudTextField Label="Floor Number" @bind-Value="@timeSlot.FloorNumber" ReadOnly="true" />
-            </MudItem>
-            <MudItem xs="12" md="6">
-                <MudTextField Label="Parking ID" @bind-Value="@timeSlot.ParkingId" ReadOnly="true" />
-            </MudItem>
-        </MudGrid>
-    </DialogContent>
-    <DialogActions>
-        <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="@(() => ReserveTimeSlot())">Reserve</MudButton>
-        <MudButton Color="Color.Secondary" Variant="Variant.Outlined" OnClick="@(() => CancelReservation())">Cancel</MudButton>
-    </DialogActions>
-</MudDialog>
+<MudDialog @bind-Visible="@showDialog" Title="@GetTitleText(Index.foglalas)">
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12" md="6">
+                    <MudDatePicker Label="Date" @bind-Date="@timeSlot.BookingDay" ReadOnly="@Index.foglalas" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTimePicker Label="Start Time" AmPm="true" @bind-Time="@timeSlot.BookingStartTime" ReadOnly="@Index.foglalas" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTimePicker Label="End Time" AmPm="true" @bind-Time="@timeSlot.BookingEndTime" ReadOnly="@Index.foglalas" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField Label="Floor Number" @bind-Value="@timeSlot.FloorNumber" ReadOnly="@Index.foglalas" />
+                </MudItem>
+                <MudItem xs="12" md="6">
+                    <MudTextField Label="Parking ID" @bind-Value="@timeSlot.ParkingId" ReadOnly="@Index.foglalas" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudButton Color="Color.Primary" Variant="Variant.Filled" OnClick="@(() => ReserveTimeSlot())">OK</MudButton>
+            <MudButton Color="Color.Secondary" Variant="Variant.Outlined" OnClick="@(() => CancelReservation())">Cancel</MudButton>
+        </DialogActions>
+    </MudDialog>
+
+    
 
 @code {
     [Parameter] public BookingModel timeSlot { get; set; } = new BookingModel();
@@ -39,6 +41,11 @@
     //int? selectedFloorNumber;
     //int? selectedParkingId;
 
+    public string GetTitleText(bool foglalas)
+    {
+        if (foglalas) return "Időpontfoglalás";
+        return "Időpont felajánlás";
+    }
 
     private void ReserveTimeSlot()
     {
