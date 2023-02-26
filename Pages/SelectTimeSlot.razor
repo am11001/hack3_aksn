@@ -30,7 +30,7 @@
 
 @code {
     [Parameter] public BookingModel timeSlot { get; set; } = new BookingModel();
-
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; } = new MudDialogInstance();
     private bool showDialog = false;
     //DateTime? selectedDate;
     //TimeSpan? selectedStartTime;
@@ -40,16 +40,12 @@
     //int? selectedParkingId;
 
 
-
     private void ReserveTimeSlot()
     {
         // do something with the reserved time slot, e.g. add it to a list of reserved time slots
         //Snackbar.Add($"Reserved time slot: {timeSlot.Date.ToShortDateString()} {timeSlot.StartTime.ToString()} - {timeSlot.EndTime.ToString()} Floor: {timeSlot.FloorNumber} ID: {timeSlot.ParkingId}", Severity.Success);
-        showDialog = false;
+        MudDialog.Close(DialogResult.Ok(true));
     }
 
-    private void CancelReservation()
-    {
-        showDialog = false;
-    }
+    void CancelReservation() => MudDialog.Cancel();
 }

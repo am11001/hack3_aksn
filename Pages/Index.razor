@@ -1,9 +1,58 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+@using MudBlazor
+@using HACKH.Models
+@using HACKH.Data
 
-<h1>Hello, world!</h1>
+@inject ApplicationDbContext dbContext
+@inject IDialogService DialogService
+<MudContainer>
+    <MudDatePicker Label="Select a date" @bind-Date=@selectedDate />
 
-Welcome to your new app.
+    <h4 style="margin-top: 50px"> Available Time Slots </h4>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    <MudGrid>
+        @foreach (var timeSlot in timeSlots)
+        {
+            @if (timeSlot.BookingDay == selectedDate || true)
+            {
+                <MudItem xs="12" sm="6" md="4" lg="3" xl="2">
+                    <MudButton OnClick="@(() => SelectTimeSlot(timeSlot))">
+                        <MudCard>
+                            <MudCardContent>
+                                <h6>@timeSlot.BookingStartTime?.ToString(@"hh\:mm") - @timeSlot.BookingEndTime?.ToString(@"hh\:mm")</h6>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudButton>
+                </MudItem>
+            }
+        }
+    </MudGrid>
+</MudContainer>
+
+@code {
+    DateTime? selectedDate;
+    List<BookingModel> timeSlots { get; set; } = new List<BookingModel>();
+
+    private void SelectTimeSlot(BookingModel timeSlot)
+    {
+        var parameters = new DialogParameters { ["timeSlot"] = timeSlot };
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+        DialogService.Show<SelectTimeSlot>("Reservation", parameters, options);
+    }
+
+    protected override void OnInitialized()
+    {
+        selectedDate = DateTime.Today;
+        //timeSlots = dbContext.TimeSlots.ToList();
+        //maybe we have to compute it?
+
+        timeSlots.Add(new BookingModel(new DateTime(2023, 12, 12), new TimeSpan(2, 0, 0), new TimeSpan(4, 0, 0), 3, 3));
+        timeSlots.Add(new BookingModel(new DateTime(2023, 09, 12), new TimeSpan(14, 0, 0), new TimeSpan(18, 0, 0), 3, 3));
+        timeSlots.Add(new BookingModel(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new BookingModel(new DateTime(2023, 07, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new BookingModel(new DateTime(2023, 06, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new BookingModel(new DateTime(2023, 09, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+        timeSlots.Add(new BookingModel(new DateTime(2023, 08, 12), new TimeSpan(7, 0, 0), new TimeSpan(15, 0, 0), 3, 3));
+    }
+}
